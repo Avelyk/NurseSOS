@@ -44,7 +44,7 @@ body {
   left: 0; 
   right: 0; 
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95); /* Adjusted opacity to hide text scrolling underneath */
+  background: rgba(255, 255, 255, 0.98); 
   backdrop-filter: blur(20px);
   border-bottom: 2px solid var(--blue-subtle);
   height: 90px;
@@ -77,7 +77,7 @@ body {
 
 .navbar__logo img {
   width: auto;        
-  height: 110px; /* Scaled cleanly down to frame boundaries */      
+  height: 110px;       
   object-fit: contain;
   display: block;
   position: absolute;
@@ -148,7 +148,7 @@ body {
 .main {
   flex: 1;
   max-width: 1200px;
-  margin: 90px auto 0 auto; /* Pushes content down exactly 90px to prevent navbar clipping */
+  margin: 90px auto 0 auto; 
   padding: 30px 20px 40px;
   width: 100%;
 }
