@@ -3,7 +3,6 @@
    Medical blue + white color scheme. Fixed Navbar Layout.
    ============================================================ */
 
-/* ---------- CSS VARIABLES ---------- */
 :root {
   --blue-dark:    #1a365d;   
   --blue-mid:     #2b6cb0;   
@@ -20,7 +19,6 @@
   --shadow: 0 2px 12px rgba(26, 54, 93, 0.08);
 }
 
-/* ---------- RESET ---------- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -66,7 +64,6 @@ body {
   gap: 16px;
 }
 
-/* Constrains logo frame container box */
 .navbar__logo {
   width: 140px;        
   height: 45px;        
@@ -126,7 +123,6 @@ body {
   align-items: center; 
 }
 
-/* Live badge */
 .header__badge {
   background: var(--red-accent);
   color: var(--white);
@@ -144,7 +140,7 @@ body {
   50%      { opacity: 0.65; }
 }
 
-/* ========== MAIN CONTENT (PUSHED DOWN PAST FIXED NAV) ========== */
+/* ========== MAIN CONTENT CONTAINER ========== */
 .main {
   flex: 1;
   max-width: 1200px;
@@ -233,7 +229,7 @@ body {
   background: var(--gray-light);
 }
 
-/* ========== MESSAGE BUBBLES ========== */
+/* ========== MESSAGE BUBBLES & PREVIEWS ========== */
 .message {
   display: flex;
   flex-direction: column;
@@ -261,6 +257,13 @@ body {
   font-size: 0.9rem;
   line-height: 1.5;
   word-break: break-word;
+}
+
+.message__media-content {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 6px;
+  margin-top: 4px;
 }
 
 .message__time {
@@ -333,6 +336,44 @@ body {
 .chat-panel__send-btn:hover { background: var(--blue-dark); }
 .chat-panel__send-btn--nurse { background: var(--red-accent); }
 .chat-panel__send-btn--nurse:hover { background: #c53030; }
+
+/* Staged Attachment Indicator Thumbnails */
+.chat-panel__preview-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--gray-light);
+  border: 1px solid var(--blue-subtle);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.chat-panel__preview-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.chat-panel__preview-remove {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  background: var(--red-accent);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* ========== FOOTER ========== */
 .footer { background: var(--blue-dark); color: rgba(255, 255, 255, 0.8); padding: 20px; margin-top: auto;}
