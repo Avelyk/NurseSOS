@@ -8,26 +8,26 @@
 </head>
 <body>
 
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar">
-    <div class="navbar__inner">
-      <a href="#" class="navbar__brand">
-        <div class="navbar__logo"><img src="imgs/Logo3.png" alt="NurseSOS Logo"></div>
-      </a>
-      <div class="navbar__links">
-        <a href="#services">Services</a>
-        <a href="#team">Our Team</a>
-        <a href="#contact">Contact</a>
+  <div style="height: 90px;">
+    <nav class="navbar">
+      <div class="navbar__inner">
+        <a href="#" class="navbar__brand">
+          <div class="navbar__logo"><img src="imgs/Logo3.png" alt="NurseSOS Logo"></div>
+        </a>
+        <div class="navbar__links">
+          <a href="#services">Services</a>
+          <a href="#team">Our Team</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="navbar__cta">
+          <a href="tel:0917 555 4321" class="btn btn--outline btn--sm">Call Now</a>
+          <a href="#contact" class="btn btn--danger btn--sm">Get Help Now</a>
+        </div>
+        <button class="navbar__menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
       </div>
-      <div class="navbar__cta">
-        <a href="tel:0917 555 4321" class="btn btn--outline btn--sm">Call Now</a>
-        <a href="#contact" class="btn btn--danger btn--sm">Get Help Now</a>
-      </div>
-      <button class="navbar__menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
-  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services" onclick="toggleMenu()">Services</a>
     <a href="#team" onclick="toggleMenu()">Our Team</a>
@@ -36,14 +36,11 @@
     <a href="#contact" class="btn btn--danger" onclick="toggleMenu()">Get Help Now</a>
   </div>
 
-  <!-- ========== HERO & STATS ========== -->
   <section class="hero">
     <div class="container">
       <div class="hero__grid">
 
-        <!-- Left: Text -->
         <div class="hero__text">
-          <!-- Live nurse indicator -->
           <div class="orbs">
             <div class="orbs__dots">
               <div class="orbs__dot"></div>
@@ -64,7 +61,6 @@
             experienced nurses — 24/7, for triage, post-op care, mental health support, and more.
           </p>
 
-          <!-- Instant Link Module -->
           <div class="instant-card">
             <div class="instant-card__header">
               <span style="font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; color: var(--gray-mid);">
@@ -84,57 +80,52 @@
             </div>
           </div>
 
-          <!-- Bottom row -->
           <div class="hero__bottom">
             <a href="#services" class="arrow">Explore Services &#8594;</a>
             <span class="divider"></span>
           </div>
         </div>
 
-        <!-- Right: Image -->
-        <div class="hero__image-wrap">
-          <div class="hero__image">
-            <img
-              src="https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/fc57d8dc8_generated_089413a1.png"
-              alt="Professional nurse ready to connect"
-            />
+        <div class="hero__right-sidebar">
+          <div class="hero__image-wrap">
+            <div class="hero__image">
+              <img
+                src="https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/fc57d8dc8_generated_089413a1.png"
+                alt="Professional nurse ready to connect"
+              />
+            </div>
+          </div>
+
+          <div class="hero__stats">
+            <div class="vigilance-line"></div>
+            <div class="stats__grid stats__grid--sidebar">
+              <div>
+                <div class="stats__value">24/7</div>
+                <div class="stats__label">Availability</div>
+              </div>
+              <div>
+                <div class="stats__value">&lt;30s</div>
+                <div class="stats__label">Avg. Response</div>
+              </div>
+            </div>
+            <div class="vigilance-line"></div>
           </div>
         </div>
 
       </div>
-
-      <!-- Integrated Stats (Sits nicely at the bottom of the first section) -->
-      <div class="hero__stats" style="margin-top: 40px;">
-        <div class="vigilance-line"></div>
-        <div class="stats__grid stats__grid--centered">
-          <div>
-            <div class="stats__value">24/7</div>
-            <div class="stats__label">Availability</div>
-          </div>
-          <div>
-            <div class="stats__value">&lt;30s</div>
-            <div class="stats__label">Avg. Response</div>
-          </div>
-        </div>
-        <div class="vigilance-line"></div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ========== SERVICES BAR ========== -->
   <section id="services" class="section">
     <div class="container">
       <div class="services__header">
-        <div class="label">Service Verticals</div>
-        <h2 class="heading">Dispatcher Intel</h2>
+        <div class="label">Service Our Care Services</div>
+        <h2 class="heading">How We Help You</h2>
         <p class="subtitle">
-          Every service line is staffed by board-certified professionals
-          trained to deliver clarity in moments of uncertainty.
+From 24/7 helpline triage to medication reminders and emotional support, our certified nurses are ready to guide you through any health situation.
         </p>
       </div>
 
-      <!-- Service cards injected by JS -->
       <div id="servicesContainer"></div>
 
       <div class="services__more">
@@ -145,7 +136,6 @@
     </div>
   </section>
 
-  <!-- ========== TEAM ========== -->
   <section class="section" id="team">
     <div class="container">
       <div class="team__header">
@@ -156,76 +146,70 @@
         <a href="team.html" class="services__card-link">Meet the Full Team &#8594;</a>
       </div>
 
-      <!-- Team cards injected by JS -->
       <div class="team__grid" id="teamContainer"></div>
     </div>
   </section>
 
-  <!-- ========== CONTACT & UNIFIED FOOTER ========== -->
   <section class="section section--dark unified-footer-pane" id="contact">
-    <div class="container unified-footer-container">
-      
-      <div class="cta__card">
-        <div class="label" style="color: rgba(255,255,255,0.5);">Don't Wait</div>
-        <h2 class="cta__heading">
-          Every second you hesitate is a second we could be helping.
-        </h2>
-        <p class="cta__sub">
-          Connect with a certified nurse right now. No wait, no judgment, no barriers.
-        </p>
-        <div class="cta__buttons">
-          <a href="tel:0917 555 4321" class="btn btn--danger btn--lg">
-            &#9742; Call Now
-          </a>
-          <a href="nursesos-prototype/index.html" class="btn btn--outline btn--lg"
-             style="border-color: rgba(255,255,255,0.2); color: white;">
-            Message us now &#8594;
-          </a>
+    <div class="container">
+      <div class="unified-footer-container">
+        
+        <div class="cta__card">
+          <div class="label" style="color: rgba(255,255,255,0.5);">Don't Wait</div>
+          <h2 class="cta__heading">
+            Every second you hesitate is a second we could be helping.
+          </h2>
+          <p class="cta__sub">
+            Connect with a certified nurse right now. No wait, no judgment, no barriers.
+          </p>
+          <div class="cta__buttons">
+            <a href="tel:0917 555 4321" class="btn btn--danger btn--lg">
+              &#9742; Call Now
+            </a>
+            <a href="nursesos-prototype/index.html" class="btn btn--outline btn--lg"
+               style="border-color: rgba(255,255,255,0.2); color: white;">
+              Message us now &#8594;
+            </a>
+          </div>
         </div>
-      </div>
 
-      <footer class="footer" id="about">
-        <div class="footer__grid">
-          <div>
-            <div class="footer__brand">
-              <strong style="color: white; margin-left: 5px;">NurseSOS</strong>
+        <footer class="footer" id="about">
+          <div class="footer__grid">
+            <div>
+              <div class="footer__brand">
+                <strong style="color: white; margin-left: 5px;">NurseSOS</strong>
+              </div>
+              <p> Professional nurse-led call services providing immediate, compassionate healthcare support.</p>
             </div>
-            <p> Professional nurse-led call services providing immediate, compassionate healthcare support.</p>
+            <div>
+              <h4>Services</h4>
+              <a href="#services">24/7 App Nursing Support</a>
+              <a href="#services">Telehealth & Health Tracking</a>
+              <a href="#services">Emergency & Referral Services</a>
+            </div>
+            <div>
+              <h4>Company</h4>
+              <a href="#team">Our Team</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div>
+              <h4>Reach Us</h4>
+              <p>&#9742; <a href="tel:0917 555 4321">0917 555 4321</a></p>
+              <p>&#9993; <a href="mailto:contact@nursesos.com">contact@nursesos.com</a></p>
+            </div>
           </div>
-          <div>
-            <h4>Services</h4>
-            <a href="#services">24/7 App Nursing Support</a>
-            <a href="#services">Telehealth & Health Tracking</a>
-            <a href="#services">Emergency & Referral Services</a>
-            <a href="#services">24/7 App Nursing Support</a>
-            <a href="#services">Telehealth & Health Tracking</a>
-            <a href="#services">Emergency & Referral Services</a>
+          <div class="footer__bottom">
+            <span>&copy; 2026 NurseSOS. All rights reserved.</span>
+            <span>Privacy Policy &middot; Terms &middot; HIPAA</span>
           </div>
-          <div>
-            <h4>Company</h4>
-            <a href="#team">Our Team</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <div>
-            <h4>Reach Us</h4>
-            <p>&#9742; <a href="tel:0917 555 4321">0917 555 4321</a></p>
-            <p>&#9993; <a href="mailto:contact@nursesos.com">contact@nursesos.com</a></p>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <span>&copy; 2026 NurseSOS. All rights reserved.</span>
-          <span>Privacy Policy &middot; Terms &middot; HIPAA</span>
-        </div>
-      </footer>
+        </footer>
 
+      </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       JAVASCRIPT — Live clock, dynamic content, mobile menu
-       ============================================================ -->
   <script>
-    /* ===== 1. LIVE CLOCK ===== */
+   /* ===== 1. LIVE CLOCK ===== */
     function updateClock() {
       const now = new Date();
       document.getElementById('liveClock').textContent =
@@ -267,7 +251,7 @@
         icon: '&#128214;',
         title: 'Health & Wellness Education',
         desc: 'Reliable medical advice, health tips, and lifestyle guidance to help you make informed decisions about your well-being.',
-        image: 'https://images.unsplash.com/photo-1505371753713-a8a29f620495?auto=format&fit=crop&w=500&q=80'
+        image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80'
       },
       {
         icon: '&#9200;',
@@ -350,37 +334,36 @@
         '</div>';
     }
     document.getElementById('teamContainer').innerHTML = teamHTML;
+/* ===== 6. BULLETPROOF SCROLL-SNAP IMMUNE VISIBILITY REVEAL ENGINE ===== */
+    document.addEventListener("DOMContentLoaded", function () {
+      const targets = document.querySelectorAll('.hero, .section');
 
-    /* ===== 6. RENDER TESTIMONIALS ===== */
-    var testimonials = [
-      {
-        text: 'At 2 AM when my daughter had a high fever, NurseSOS connected me with a nurse in under 20 seconds. She was calm, thorough, and gave us the exact guidance we needed.',
-        name: 'Jennifer M.', location: 'Austin, TX'
-      },
-      {
-        text: 'After my surgery, the post-op support line was invaluable. Instead of rushing to the ER for every concern, I had a nurse who knew my case.',
-        name: 'Robert K.', location: 'Chicago, IL'
-      },
-      {
-        text: 'The mental health support line helped me through one of the darkest periods of my life. Having a compassionate professional at any hour made all the difference.',
-        name: 'Amara S.', location: 'Seattle, WA'
+      function evaluateLayoutPositions() {
+        // Find the absolute centerline of the physical glass screen monitor
+        const screenCenterline = window.innerHeight / 2;
+
+        targets.forEach(target => {
+          const bounds = target.getBoundingClientRect();
+
+          // Check if the current section spans across the vertical midpoint of your viewport
+          if (bounds.top <= screenCenterline && bounds.bottom >= screenCenterline) {
+            target.classList.add('reveal-active');
+          } else {
+            target.classList.remove('reveal-active');
+          }
+        });
       }
-    ];
 
-    var testimonialHTML = '';
-    for (var k = 0; k < testimonials.length; k++) {
-      var t = testimonials[k];
-      testimonialHTML +=
-        '<div class="testimonial__card">' +
-          '<div class="testimonial__quote">&ldquo;</div>' +
-          '<div class="testimonial__text">' + t.text + '</div>' +
-          '<div class="testimonial__author">' +
-            '<div class="testimonial__author-name">' + t.name + '</div>' +
-            '<div class="testimonial__author-loc">' + t.location + '</div>' +
-          '</div>' +
-        '</div>';
-    }
-    document.getElementById('testimonialsContainer').innerHTML = testimonialHTML;
+      // Hook directly into the window's visual event handler arrays
+      window.addEventListener('scroll', evaluateLayoutPositions, { passive: true });
+      window.addEventListener('resize', evaluateLayoutPositions, { passive: true });
+      
+      // Fallback fallback loop for aggressive scroll-snap container rendering modes
+      setInterval(evaluateLayoutPositions, 150);
+
+      // Initialize instantly to illuminate the page contents on launch
+      evaluateLayoutPositions();
+    });
   </script>
 
 </body>

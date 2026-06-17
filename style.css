@@ -42,50 +42,86 @@ body {
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 
-/* ---------- NAVBAR ---------- */
+/* ---------- NAVBAR (SCALED UP & FIXED) ---------- */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--blue-subtle);
 }
+
 .navbar__inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 0 20px; height: 72px;
-  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 20px; 
+  height: 90px;        /* Taller header presence */
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
 }
+
 .navbar__brand {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
 }
+
+/* Logo box masks and shifts the specific logo asset */
 .navbar__logo {
-  width: 140px;         /* Matches prototype wrapper width */
-  height: 40px;        /* Matches prototype wrapper height */
-  position: relative;  /* Allows absolute alignment inside */
-  overflow: hidden;    /* Clips the large image just like the prototype */
+  width: 175px;        
+  height: 50px;        
+  position: relative;  
+  overflow: hidden;    
+  display: inline-block;
 }
 
 .navbar__logo img {
-  height: 100px;       /* Forces the asset size to match the prototype scale */
-  width: auto;
+  width: 175px;        
+  height: 125px;       
   object-fit: contain;
   display: block;
   position: absolute;
-  top: -35px;          /* Shifts it up identically to hide the extra whitespace */
+  top: -42px;          
   left: 0;
   mix-blend-mode: multiply; 
   z-index: 5;          
+  max-width: none !important;
 }
-.navbar__title { font-size: 1.15rem; font-weight: 700; }
-.navbar__title span { color: var(--red); }
-.navbar__links { display: flex; gap: 28px; }
-.navbar__links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-dark); transition: color 0.2s; }
-.navbar__links a:hover { color: var(--navy); }
+
+.navbar__links { 
+  display: flex; 
+  gap: 36px;           
+}
+
+.navbar__links a { 
+  font-size: 1.05rem;  
+  font-weight: 600;    
+  color: var(--gray-dark); 
+  transition: color 0.2s; 
+}
+.navbar__links a:hover { 
+  color: var(--navy); 
+}
+
 .navbar__cta {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
 }
+
+/* Bumps buttons inside header up to default layout sizing */
+.navbar__cta .btn--sm {
+  padding: 10px 22px;  
+  font-size: 0.875rem; 
+}
+
 .navbar__menu-btn {
-  display: none; background: none; border: none;
-  font-size: 1.5rem; cursor: pointer; color: var(--navy);
+  display: none; 
+  background: none; 
+  border: none;
+  font-size: 1.8rem;   
+  cursor: pointer; 
+  color: var(--navy);
 }
 
 /* ---------- BUTTONS ---------- */
@@ -133,8 +169,17 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 12px;      
   display: inline-block;    
 }
-.heading { font-size: 2rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
-.heading--lg { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+.heading { 
+  font-size: 2rem; 
+  font-weight: 800; 
+  line-height: 1.1; 
+  margin-bottom: 16px; 
+}
+
+/* Large Hero Typography */
+.heading--lg { 
+  font-size: clamp(2.5rem, 6vw, 4.2rem); 
+}
 .subtitle { font-size: 1rem; color: var(--gray-dark); max-width: 600px; line-height: 1.7; }
 
 /* ---------- HERO ---------- */
@@ -142,32 +187,43 @@ a { text-decoration: none; color: inherit; }
   min-height: 100vh; 
   display: flex; 
   align-items: center; 
-  padding: 120px 20px 60px 20px; 
+  padding: 110px 20px 60px 20px; /* Reduced top padding slightly since navbar spacer handles height gap now */
   scroll-snap-align: start;
   scroll-snap-stop: always;
 } 
 .hero__grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px; align-items: center;
+  display: grid; 
+  grid-template-columns: 1.2fr 1fr; 
+  gap: 60px; 
+  align-items: center; 
 }
-.hero__text { order: 2; }
-.hero__image-wrap { order: 1; position: relative; }
+.hero__text { 
+  order: 2; 
+}
+.hero__right-sidebar { 
+  order: 1; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 24px; 
+  width: 100%;
+}
+.hero__image-wrap { 
+  position: relative; 
+  width: 100%; 
+}
 .hero__image {
-  border-radius: var(--radius-lg); overflow: hidden;
-  aspect-ratio: 3/4; max-height: 550px;
+  border-radius: var(--radius-lg); 
+  overflow: hidden;
+  aspect-ratio: 4 / 3; 
+  max-height: 650px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
 }
-.hero__image img { width: 100%; height: 100%; object-fit: cover; }
-
-.hero__float-card {
-  position: absolute; bottom: -16px; left: -16px;
-  background: var(--white); border-radius: var(--radius);
-  box-shadow: var(--shadow-md); padding: 14px 18px;
-  border: 1px solid var(--blue-subtle);
-  z-index: 10;
+.hero__image img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
-.hero__float-card .label { margin-bottom: 2px; }
-.hero__float-card .count { font-size: 1.8rem; font-weight: 800; color: var(--navy); }
-.hero__float-card .since { font-size: 0.75rem; color: var(--gray-mid); margin-top: 2px; }
 
 /* Vitality orbs */
 .orbs { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
@@ -235,11 +291,9 @@ a { text-decoration: none; color: inherit; }
   text-align: center; 
   gap: 20px;
 }
-/* New utility class to isolate and center exactly 2 data metrics */
-.stats__grid--centered {
+.stats__grid--sidebar {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 500px;
-  margin: 0 auto;
+  width: 100%;
 }
 .stats__value { 
   font-size: 2rem; 
@@ -255,7 +309,7 @@ a { text-decoration: none; color: inherit; }
 }
 .vigilance-line {
   height: 1px; 
-  margin: 24px 0; 
+  margin: 16px 0; 
   background: linear-gradient(to right, transparent, var(--gray-light), transparent);
 }
 
@@ -270,7 +324,6 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 24px;
 }
 
-/* 3-Card Default Block Styles */
 .services__card {
   display: flex; 
   background: var(--white); 
@@ -362,11 +415,6 @@ a { text-decoration: none; color: inherit; }
 .team__card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; z-index: 2; }
 .team__card-name { font-size: 1.4rem; font-weight: 800; color: var(--white); line-height: 1.2; }
 .team__card-role { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
-.team__card-exp {
-  display: inline-block; margin-top: 10px;
-  font-size: 0.7rem; color: rgba(255,255,255,0.8);
-  background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 4px;
-}
 
 /* ---------- TESTIMONIALS ---------- */
 .testimonials__header { text-align: center; margin-bottom: 40px; }
@@ -409,7 +457,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ---------- MOBILE NAV ---------- */
 .mobile-menu {
-  display: none; position: fixed; top: 72px; left: 0; right: 0;
+  display: none; position: fixed; top: 90px; left: 0; right: 0; /* Match new header height */
   background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--blue-subtle); padding: 20px; z-index: 99;
   flex-direction: column; gap: 14px;
@@ -429,12 +477,14 @@ a { text-decoration: none; color: inherit; }
   .navbar__links, .navbar__cta { display: none; }
   .navbar__menu-btn { display: block; }
 
-  .hero__grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero__grid { 
+    grid-template-columns: 1fr; 
+    gap: 32px; 
+  }
+  .hero__right-sidebar { order: 2; }
   .hero__text { order: 1; }
   .hero__image-wrap { order: 2; }
   .hero__image { aspect-ratio: 4/3; max-height: 350px; }
-  .hero__float-card { bottom: -10px; left: 8px; padding: 10px 14px; }
-  .hero__float-card .count { font-size: 1.5rem; }
 
   .heading { font-size: 1.75rem; }
   .heading--lg { font-size: 2.2rem; }
@@ -450,10 +500,7 @@ a { text-decoration: none; color: inherit; }
   .section { padding: 70px 20px; }
 }
 
-/* ============================================================
-   COMBINED CTA & FOOTER PANEL — 100vh Single Viewport Lock
-   ============================================================ */
-
+/* ---------- UNIFIED FOOTER PANEL BLOCK ---------- */
 .unified-footer-pane {
   background: var(--navy) !important;
   color: var(--white) !important;
@@ -519,4 +566,30 @@ a { text-decoration: none; color: inherit; }
     height: auto !important;
     min-height: auto;
   }
+}
+
+/* ============================================================
+   SCROLL REVEAL RENDERING ENGINE (REPEATING FLOW MODES)
+   ============================================================ */
+
+/* 1. Prevent parent layouts from collapsing */
+.hero, .section {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* 2. Base state for the internal containers (Hidden by default) */
+.hero > .container, 
+.section > .container {
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out !important;
+  will-change: transform, opacity;
+}
+
+/* 3. Active animation state (Triggered dynamically via snap positions) */
+.hero.reveal-active > .container, 
+.section.reveal-active > .container {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }

@@ -37,61 +37,66 @@ body {
   flex-direction: column;
 }
 
-/* ========== HEADER ========== */
-.header {
-  background: var(--white);
+/* ========== NAVBAR (SCALED UP & FIXED FROM ORIGINAL STYLE) ========== */
+.navbar {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
   border-bottom: 2px solid var(--blue-subtle);
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
-.header__inner {
-  max-width: 1200px;
+.navbar__inner {
+  max-width: 1200px; 
   margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
+  padding: 0 20px; 
+  height: 90px;        /* Original taller header presence */
+  display: flex; 
+  align-items: center; 
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
-.header__brand {
-  display: flex;
-  align-items: center;
+.navbar__brand {
+  display: flex; 
+  align-items: center; 
   gap: 16px;
 }
 
-.header__logo-wrapper {
-  width: 140px;         
-  height: 40px;        
+/* Logo box masks and shifts the specific logo asset exactly like homepage */
+.navbar__logo {
+  width: 175px;        
+  height: 50px;        
   position: relative;  
-  overflow: hidden;
+  overflow: hidden;    
+  display: inline-block;
 }
 
-.header__logo-img {
-  height: 100px;       
-  width: auto;
+.navbar__logo img {
+  width: 175px;        
+  height: 125px;       
   object-fit: contain;
   display: block;
   position: absolute;
-  top: -35px;          
+  top: -42px;          
   left: 0;
   mix-blend-mode: multiply; 
   z-index: 5;          
+  max-width: none !important;
 }
 
 .header__home-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 8px 18px;   /* Slightly scaled up padding */
   background: var(--blue-light);
   border: 1px solid var(--blue-subtle);
   border-radius: 20px;
   color: var(--blue-mid);
-  font-size: 0.85rem;
+  font-size: 0.9rem;   /* Matched text sizing */
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -104,36 +109,35 @@ body {
   transform: translateY(-1px);
 }
 
-.header__title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--blue-dark);
-}
-
-/* Contact Info */
-.header__contact {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
+.navbar__links { 
+  display: flex; 
+  gap: 36px;           /* Reinstated broad layout space gaps */
 }
 
 .header__contact-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
+  gap: 8px;
+  font-size: 1.05rem;  /* Matched homepage navigation link size */
+  font-weight: 600;
   color: var(--gray-dark);
+}
+
+.navbar__cta {
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
 }
 
 /* Live badge */
 .header__badge {
   background: var(--red-accent);
   color: var(--white);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   animation: pulse-badge 2s infinite;
 }
@@ -143,12 +147,12 @@ body {
   50%      { opacity: 0.65; }
 }
 
-/* ========== MAIN ========== */
+/* Add offset to main container to prevent content clipping under fixed navbar */
 .main {
   flex: 1;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 20px 40px;
+  margin: 90px auto 0 auto; /* Added 90px top margin to match the fixed navbar height */
+  padding: 40px 20px;
   width: 100%;
 }
 
@@ -389,6 +393,7 @@ body {
 .chat-panel__send-btn--nurse { background: var(--red-accent); }
 .chat-panel__send-btn--nurse:hover { background: #c53030; }
 
+/* ========== FOOTER ========== */
 .footer { background: var(--blue-dark); color: rgba(255, 255, 255, 0.8); padding: 20px; }
 .footer__inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer__contact { display: flex; flex-direction: column; gap: 4px; }
@@ -397,12 +402,13 @@ body {
 
 /* ========== RESPONSIVE MOBILE ADJUSTMENTS ========== */
 @media (max-width: 768px) {
+  .navbar { position: relative; } /* Release structural fixing on small phones */
+  .main { margin-top: 0; }
+  .navbar__inner { height: auto; padding: 16px 20px; flex-direction: column; gap: 14px; }
+  .navbar__links { flex-direction: column; gap: 6px; align-items: center; }
   .chat-layout { grid-template-columns: 1fr; }
   .chat-panel { min-height: 400px; }
   .chat-panel__messages { max-height: 300px; }
-  .header__inner { justify-content: center; text-align: center; }
-  .header__brand { justify-content: center; width: 100%; }
-  .header__contact { flex-direction: column; align-items: center; gap: 4px; }
   .footer__inner { flex-direction: column; text-align: center; }
   .footer__contact-details { flex-direction: column; gap: 2px; }
 }

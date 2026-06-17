@@ -6,10 +6,11 @@
   <title>NurseSOS — Our Team</title>
   <style>
     /* ============================================================
-       NurseSOS Team Page — Same design system as home.html
+       NurseSOS Team Page — Integrated CSS
        Medical blue + white. Responsive. Beginner-friendly.
        ============================================================ */
 
+    /* ---------- CSS VARIABLES ---------- */
     :root {
       --navy:       #1a365d;
       --navy-light: #2a4a7f;
@@ -19,18 +20,24 @@
       --white:      #ffffff;
       --off-white:  #f7fafc;
       --gray-light: #edf2f7;
-      --gray-mid:   --a0aec0;
+      --gray-mid:   #a0aec0;
       --gray-dark:  #4a5568;
       --red:        #e53e3e;
       --red-dark:   #c53030;
+      --green:      #38a169;
       --radius:     12px;
-      --radius-lg:  20px;
+      --radius-lg:  24px;
       --shadow-sm:  0 2px 12px rgba(26,54,93,0.08);
       --shadow-md:  0 8px 30px rgba(26,54,93,0.12);
     }
 
+    /* ---------- RESET ---------- */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html { 
+      scroll-behavior: smooth; 
+    }
+
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: var(--off-white);
@@ -41,45 +48,87 @@
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
 
-    /* ---------- NAVBAR ---------- */
+    /* ---------- NAVBAR (SCALED UP & FIXED — MATCHES HOMEPAGE EXACTLY) ---------- */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--blue-subtle);
     }
-    .navbar__inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 20px; height: 72px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .navbar__brand {
-      display: flex; align-items: center; gap: 10px;
-    }
-.navbar__logo {
-  width: 140px;         /* Matches prototype wrapper width */
-  height: 40px;        /* Matches prototype wrapper height */
-  position: relative;  /* Allows absolute alignment inside */
-  overflow: hidden;    /* Clips the large image just like the prototype */
-}
 
-.navbar__logo img {
-  height: 100px;       /* Forces the asset size to match the prototype scale */
-  width: auto;
-  object-fit: contain;
-  display: block;
-  position: absolute;
-  top: -35px;          /* Shifts it up identically to hide the extra whitespace */
-  left: 0;
-  mix-blend-mode: multiply; 
-  z-index: 5;          
-}
-    .navbar__title { font-size: 1.15rem; font-weight: 700; }
-    .navbar__title span { color: var(--red); }
-    .navbar__links { display: flex; gap: 28px; }
-    .navbar__links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-dark); transition: color 0.2s; }
-    .navbar__links a:hover { color: var(--navy); }
-    .navbar__menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); }
+    .navbar__inner {
+      max-width: 1200px; 
+      margin: 0 auto;
+      padding: 0 20px; 
+      height: 90px;        /* Taller header presence */
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+    }
+
+    .navbar__brand {
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+    }
+
+    /* Logo box masks and shifts the specific logo asset */
+    .navbar__logo {
+      width: 175px;        
+      height: 50px;        
+      position: relative;  
+      overflow: hidden;    
+      display: inline-block;
+    }
+
+    .navbar__logo img {
+      width: 175px;        
+      height: 125px;       
+      object-fit: contain;
+      display: block;
+      position: absolute;
+      top: -42px;          
+      left: 0;
+      mix-blend-mode: multiply; 
+      z-index: 5;          
+      max-width: none !important;
+    }
+
+    .navbar__links { 
+      display: flex; 
+      gap: 36px;           
+    }
+
+    .navbar__links a { 
+      font-size: 1.05rem;  
+      font-weight: 600;    
+      color: var(--gray-dark); 
+      transition: color 0.2s; 
+    }
+    .navbar__links a:hover { 
+      color: var(--navy); 
+    }
+
+    .navbar__cta {
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+    }
+
+    /* Bumps buttons inside header up to default layout sizing */
+    .navbar__cta .btn--sm {
+      padding: 10px 22px;  
+      font-size: 0.875rem; 
+    }
+
+    .navbar__menu-btn {
+      display: none; 
+      background: none; 
+      border: none;
+      font-size: 1.8rem;   
+      cursor: pointer; 
+      color: var(--navy);
+    }
 
     /* ---------- BUTTONS ---------- */
     .btn {
@@ -91,28 +140,37 @@
       font-family: inherit;
     }
     .btn:active { transform: scale(0.97); }
+    .btn--primary { background: var(--navy); color: var(--white); }
+    .btn--primary:hover { background: var(--navy-light); }
+    .btn--danger { background: var(--red); color: var(--white); }
+    .btn--danger:hover { background: var(--red-dark); }
     .btn--outline {
       background: transparent; border: 1px solid var(--blue-subtle);
       color: var(--navy);
     }
     .btn--outline:hover { background: var(--blue-light); }
-    .btn--danger { background: var(--red); color: var(--white); }
-    .btn--danger:hover { background: var(--red-dark); }
+    .btn--lg { padding: 14px 32px; font-size: 1rem; }
+    .btn--sm { padding: 8px 16px; font-size: 0.8rem; }
 
     /* ---------- SECTIONS ---------- */
     .section { padding: 60px 20px; }
-    .container { max-width: 1200px; margin: 0 auto; }
+    .container { max-width: 1200px; margin: 0 auto; width: 100%; }
 
     .label {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--gray-mid); margin-bottom: 8px;
+      font-size: 0.85rem;       
+      font-weight: 700;         
+      letter-spacing: 1px;      
+      text-transform: uppercase; 
+      color: var(--blue-mid);   
+      margin-bottom: 12px;      
+      display: inline-block;    
     }
     .heading { font-size: 2rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
     .subtitle { font-size: 1rem; color: var(--gray-dark); max-width: 600px; line-height: 1.7; }
 
     /* ---------- PAGE HEADER ---------- */
     .page-header {
-      padding-top: 120px; padding-bottom: 60px;
+      padding-top: 150px; padding-bottom: 60px;
       background: linear-gradient(to bottom, var(--white), #f0f5fa);
     }
     .page-header__return {
@@ -121,12 +179,6 @@
       margin-bottom: 24px; transition: color 0.2s;
     }
     .page-header__return:hover { color: var(--navy); }
-    .page-header__icon {
-      width: 50px; height: 50px; border-radius: 14px;
-      background: var(--blue-light); display: flex;
-      align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 16px;
-    }
 
     /* ---------- OFFICER CARD ---------- */
     .officer-card {
@@ -144,7 +196,6 @@
       align-items: center; text-align: center;
     }
     
-    /* Configured Avatar to render images flawlessly without profile squishing */
     .officer-card__avatar {
       width: 80px; height: 80px; border-radius: 50%;
       background: rgba(255,255,255,0.15); color: var(--white);
@@ -186,11 +237,10 @@
     .footer__contact-details {
       display: flex; gap: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.5);
     }
-    .footer__note { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
 
-    /* Mobile menu */
+    /* ---------- MOBILE NAV ---------- */
     .mobile-menu {
-      display: none; position: fixed; top: 72px; left: 0; right: 0;
+      display: none; position: fixed; top: 90px; left: 0; right: 0; 
       background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--blue-subtle); padding: 20px; z-index: 99;
       flex-direction: column; gap: 14px;
@@ -198,19 +248,17 @@
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 1rem; padding: 8px 0; font-weight: 500; }
 
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
+    /* ---------- RESPONSIVE MEDIA QUERIES ---------- */
     @media (max-width: 768px) {
-      .navbar__links { display: none; }
+      .navbar__links, .navbar__cta { display: none; }
       .navbar__menu-btn { display: block; }
 
       .officer-card { grid-template-columns: 1fr; }
       .officer-card__left { padding: 24px 22px; }
       .officer-card__right { padding: 24px 22px; }
 
-      .heading { font-size: 1.6rem; }
-      .page-header { padding-top: 100px; padding-bottom: 40px; }
+      .heading { font-size: 1.75rem; }
+      .page-header { padding-top: 120px; padding-bottom: 40px; }
 
       .footer__inner { flex-direction: column; text-align: center; }
       .footer__contact-details { flex-direction: column; gap: 2px; }
@@ -288,7 +336,6 @@
     }
 
     /* ===== 2. OFFICER DATA ===== */
-    // 💡 Edit the 'imgSrc' property values below to point to your exact file paths!
     var officers = [
       {
         imgSrc: 'imgs/lovely.jpg', 
