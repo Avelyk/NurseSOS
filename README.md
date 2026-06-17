@@ -15,6 +15,8 @@ This prototype is kept clean, light, and beginner-friendly so it can be easily r
 * **JavaScript (Vanilla)** – Interactive front-end logic and simulated live chat functionality.
 * **Node.js** – A simple, lightweight server to run the app locally.
 
+Link to website: https://avelyk.github.io/NurseSOS/
+
 ### 📁 File Organization
 ```text
 ├── public/                     # Static assets directory
@@ -27,3 +29,5 @@ This prototype is kept clean, light, and beginner-friendly so it can be easily r
 ├── index.html                  # Main website landing page
 ├── style.css                   # Main website stylesheet
 └── team.html                   # Team/Proponents showcase page
+
+
