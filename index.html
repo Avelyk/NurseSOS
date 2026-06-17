@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NurseSOS — The Human Connection in the Critical Second</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__brand">
+        <div class="navbar__logo"><img src="imgs/Logo3.png" alt="NurseSOS Logo"></div>
+      </a>
+      <div class="navbar__links">
+        <a href="#services">Services</a>
+        <a href="#team">Our Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="navbar__cta">
+        <a href="tel:0917 555 4321" class="btn btn--outline btn--sm">Call Now</a>
+        <a href="#contact" class="btn btn--danger btn--sm">Get Help Now</a>
+      </div>
+      <button class="navbar__menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#team" onclick="toggleMenu()">Our Team</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="tel:0917 555 4321">&#9742; 0917 555 4321</a>
+    <a href="#contact" class="btn btn--danger" onclick="toggleMenu()">Get Help Now</a>
+  </div>
+
+  <!-- ========== HERO & STATS ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+
+        <!-- Left: Text -->
+        <div class="hero__text">
+          <!-- Live nurse indicator -->
+          <div class="orbs">
+            <div class="orbs__dots">
+              <div class="orbs__dot"></div>
+              <div class="orbs__dot"></div>
+              <div class="orbs__dot"></div>
+              <div class="orbs__dot"></div>
+              <div class="orbs__dot"></div>
+            </div>
+            <span class="orbs__count"><strong id="nurseCount">28</strong> nurses online now</span>
+          </div>
+
+          <h1 class="heading heading--lg">
+            The Human Connection<br />
+            <span style="color: var(--gray-mid);">in the Critical Second.</span>
+          </h1>
+          <p class="subtitle" style="margin-top: 16px;">
+            When every second counts, NurseSOS connects you instantly with certified,
+            experienced nurses — 24/7, for triage, post-op care, mental health support, and more.
+          </p>
+
+          <!-- Instant Link Module -->
+          <div class="instant-card">
+            <div class="instant-card__header">
+              <span style="font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; color: var(--gray-mid);">
+                INSTANT LINK
+              </span>
+              <span class="instant-card__live">
+                <span class="instant-card__live-dot"></span> LIVE
+              </span>
+            </div>
+            <div class="instant-card__buttons">
+              <a href="tel:0917 555 4321" class="btn btn--danger">&#9742; Call a Nurse Now</a>
+              <a href="nursesos-prototype/index.html" class="btn btn--outline">&#9654; Message Us Now</a>
+            </div>
+            <div class="instant-card__footer">
+              <span>Avg. wait: <span class="wait">&lt; 30s</span></span>
+              <span id="liveClock">--:--:--</span>
+            </div>
+          </div>
+
+          <!-- Bottom row -->
+          <div class="hero__bottom">
+            <a href="#services" class="arrow">Explore Services &#8594;</a>
+            <span class="divider"></span>
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="hero__image-wrap">
+          <div class="hero__image">
+            <img
+              src="https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/fc57d8dc8_generated_089413a1.png"
+              alt="Professional nurse ready to connect"
+            />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Integrated Stats (Sits nicely at the bottom of the first section) -->
+      <div class="hero__stats" style="margin-top: 40px;">
+        <div class="vigilance-line"></div>
+        <div class="stats__grid stats__grid--centered">
+          <div>
+            <div class="stats__value">24/7</div>
+            <div class="stats__label">Availability</div>
+          </div>
+          <div>
+            <div class="stats__value">&lt;30s</div>
+            <div class="stats__label">Avg. Response</div>
+          </div>
+        </div>
+        <div class="vigilance-line"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SERVICES BAR ========== -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="services__header">
+        <div class="label">Service Verticals</div>
+        <h2 class="heading">Dispatcher Intel</h2>
+        <p class="subtitle">
+          Every service line is staffed by board-certified professionals
+          trained to deliver clarity in moments of uncertainty.
+        </p>
+      </div>
+
+      <!-- Service cards injected by JS -->
+      <div id="servicesContainer"></div>
+
+      <div class="services__more">
+        <a href="javascript:void(0);" id="viewAllBtn" class="services__card-link" style="font-size: 0.9rem;">
+          View All Services &#8594;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="team__header">
+        <div>
+          <div class="label">The Team</div>
+          <h2 class="heading">Executive Board of Partners</h2>
+        </div>
+        <a href="team.html" class="services__card-link">Meet the Full Team &#8594;</a>
+      </div>
+
+      <!-- Team cards injected by JS -->
+      <div class="team__grid" id="teamContainer"></div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT & UNIFIED FOOTER ========== -->
+  <section class="section section--dark unified-footer-pane" id="contact">
+    <div class="container unified-footer-container">
+      
+      <div class="cta__card">
+        <div class="label" style="color: rgba(255,255,255,0.5);">Don't Wait</div>
+        <h2 class="cta__heading">
+          Every second you hesitate is a second we could be helping.
+        </h2>
+        <p class="cta__sub">
+          Connect with a certified nurse right now. No wait, no judgment, no barriers.
+        </p>
+        <div class="cta__buttons">
+          <a href="tel:0917 555 4321" class="btn btn--danger btn--lg">
+            &#9742; Call Now
+          </a>
+          <a href="nursesos-prototype/index.html" class="btn btn--outline btn--lg"
+             style="border-color: rgba(255,255,255,0.2); color: white;">
+            Message us now &#8594;
+          </a>
+        </div>
+      </div>
+
+      <footer class="footer" id="about">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__brand">
+              <strong style="color: white; margin-left: 5px;">NurseSOS</strong>
+            </div>
+            <p> Professional nurse-led call services providing immediate, compassionate healthcare support.</p>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <a href="#services">24/7 App Nursing Support</a>
+            <a href="#services">Telehealth & Health Tracking</a>
+            <a href="#services">Emergency & Referral Services</a>
+            <a href="#services">24/7 App Nursing Support</a>
+            <a href="#services">Telehealth & Health Tracking</a>
+            <a href="#services">Emergency & Referral Services</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#team">Our Team</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div>
+            <h4>Reach Us</h4>
+            <p>&#9742; <a href="tel:0917 555 4321">0917 555 4321</a></p>
+            <p>&#9993; <a href="mailto:contact@nursesos.com">contact@nursesos.com</a></p>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>&copy; 2026 NurseSOS. All rights reserved.</span>
+          <span>Privacy Policy &middot; Terms &middot; HIPAA</span>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       JAVASCRIPT — Live clock, dynamic content, mobile menu
+       ============================================================ -->
+  <script>
+    /* ===== 1. LIVE CLOCK ===== */
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('liveClock').textContent =
+        now.toLocaleTimeString('en-US', { hour12: false });
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    /* ===== 2. RANDOM NURSE COUNT (24–32) ===== */
+    document.getElementById('nurseCount').textContent =
+      Math.floor(Math.random() * 9) + 24;
+
+    /* ===== 3. MOBILE MENU TOGGLE ===== */
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    /* ===== 4. RENDER SERVICE CARDS (WITH MINIMIZE TOGGLE) ===== */
+    var allServices = [
+      {
+        icon: '&#9764;',
+        title: '24/7 App Nursing Support',
+        desc: 'Immediate clinical assessment by certified triage nurses. Symptom evaluation, care guidance, and emergency escalation.',
+        image: 'https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/6f1663a35_generated_85a681f2.png'
+      },
+      {
+        icon: '&#9829;',
+        title: 'Telehealth & Health Tracking',
+        desc: 'Continuous monitoring and recovery guidance following surgical procedures. Medication management and wound care advice.',
+        image: 'https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/b0ea62ebc_generated_2979e0ef.png'
+      },
+      {
+        icon: '&#9749;',
+        title: 'Emergency & Referral Services',
+        desc: 'Compassionate, confidential support for anxiety, crisis intervention, and emotional wellbeing — always available.',
+        image: 'https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/fe41efb9f_generated_b76cb47f.png'
+      },
+      {
+        icon: '&#128214;',
+        title: 'Health & Wellness Education',
+        desc: 'Reliable medical advice, health tips, and lifestyle guidance to help you make informed decisions about your well-being.',
+        image: 'https://images.unsplash.com/photo-1505371753713-a8a29f620495?auto=format&fit=crop&w=500&q=80'
+      },
+      {
+        icon: '&#9200;',
+        title: 'Meds & Follow-up Reminders',
+        desc: 'Automated alerts that remind you to take your medication on time and keep track of your recovery after being sick.',
+        image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80'
+      },
+      {
+        icon: '&#127969;',
+        title: 'Community Health Programs',
+        desc: 'Local outreach events, safety training, and public wellness campaigns designed to promote better health for everyone.',
+        image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=500&q=80'
+      }
+    ];
+
+    function renderServices(showAll) {
+      var servicesHTML = '';
+      var limit = showAll ? allServices.length : 3;
+      
+      for (var i = 0; i < limit; i++) {
+        var s = allServices[i];
+        servicesHTML +=
+          '<div class="services__card">' +
+            '<div class="services__card-img">' +
+              '<img src="' + s.image + '" alt="' + s.title + '" />' +
+            '</div>' +
+            '<div class="services__card-body">' +
+              '<div class="services__card-icon">' + s.icon + '</div>' +
+              '<div class="services__card-title">' + s.title + '</div>' +
+              '<div class="services__card-desc">' + s.desc + '</div>' +
+              '<a href="#services" class="services__card-link">Learn More &#8594;</a>' +
+            '</div>' +
+          '</div>';
+      }
+      
+      document.getElementById('servicesContainer').innerHTML = servicesHTML;
+    }
+
+    // Initial Run
+    renderServices(false);
+
+    // Seamless toggle click actions
+    document.getElementById('viewAllBtn').addEventListener('click', function() {
+      var container = document.getElementById('servicesContainer');
+      
+      if (!container.classList.contains('expanded')) {
+        container.classList.add('expanded');
+        renderServices(true);
+        this.innerHTML = 'Show Less &#8592;';
+      } else {
+        container.classList.remove('expanded');
+        renderServices(false);
+        this.innerHTML = 'View All Services &#8594;';
+      }
+    });
+
+    /* ===== 5. RENDER TEAM CARDS ===== */
+    var team = [
+      { name: 'Caviara, Lovely Faith', role: 'Operations & Strategy Officer',
+        img: 'https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/866dfc911_generated_0e540c6d.png' },
+      { name: 'Cagas Reynan Jr.', role: 'Service Delivery & Quality Assurance Officer',
+        img: 'https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/ef6f02855_generated_a2d9a488.png' },
+      { name: 'Ceballos, Leah Mae', role: 'Finance & Administration Officer',
+        img: 'https://media.base44.com/images/public/6a32857bc10e59598d8ba3c6/18724d9e3_generated_fbdb53f3.png' }
+    ];
+
+    var teamHTML = '';
+    for (var j = 0; j < team.length; j++) {
+      var p = team[j];
+      teamHTML +=
+        '<div class="team__card">' +
+          '<div class="team__card-img">' +
+            '<img src="' + p.img + '" alt="' + p.name + '" />' +
+            '<div class="team__card-overlay"></div>' +
+            '<div class="team__card-info">' +
+              '<div class="team__card-name">' + p.name + '</div>' +
+              '<div class="team__card-role">' + p.role + '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+    document.getElementById('teamContainer').innerHTML = teamHTML;
+
+    /* ===== 6. RENDER TESTIMONIALS ===== */
+    var testimonials = [
+      {
+        text: 'At 2 AM when my daughter had a high fever, NurseSOS connected me with a nurse in under 20 seconds. She was calm, thorough, and gave us the exact guidance we needed.',
+        name: 'Jennifer M.', location: 'Austin, TX'
+      },
+      {
+        text: 'After my surgery, the post-op support line was invaluable. Instead of rushing to the ER for every concern, I had a nurse who knew my case.',
+        name: 'Robert K.', location: 'Chicago, IL'
+      },
+      {
+        text: 'The mental health support line helped me through one of the darkest periods of my life. Having a compassionate professional at any hour made all the difference.',
+        name: 'Amara S.', location: 'Seattle, WA'
+      }
+    ];
+
+    var testimonialHTML = '';
+    for (var k = 0; k < testimonials.length; k++) {
+      var t = testimonials[k];
+      testimonialHTML +=
+        '<div class="testimonial__card">' +
+          '<div class="testimonial__quote">&ldquo;</div>' +
+          '<div class="testimonial__text">' + t.text + '</div>' +
+          '<div class="testimonial__author">' +
+            '<div class="testimonial__author-name">' + t.name + '</div>' +
+            '<div class="testimonial__author-loc">' + t.location + '</div>' +
+          '</div>' +
+        '</div>';
+    }
+    document.getElementById('testimonialsContainer').innerHTML = testimonialHTML;
+  </script>
+
+</body>
+</html>

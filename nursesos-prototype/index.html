@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NurseSOS — Live Chat Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <div class="header__logo-wrapper">
+          <img src="/imgs/logo.png" alt="NurseSOS Logo" class="header__logo-img">
+        </div>
+        <a href="index.html" class="header__home-btn" title="Back to Home">
+          <span class="header__home-text">Home</span>
+        </a>
+      </div>
+
+      <div class="header__contact">
+        <div class="header__contact-item">
+          <span class="header__contact-icon">&#9993;</span>
+          <span>info@nursesos.ph</span>
+        </div>
+        <div class="header__contact-item">
+          <span class="header__contact-icon">&#9742;</span>
+          <span>+63 917 555 4321</span>
+        </div>
+      </div>
+
+      <div class="header__badge">LIVE DEMO</div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="status-bar">
+      <span class="status-bar__dot"></span>
+      <span>Connection Active — Messages sync instantly between panels</span>
+    </div>
+
+    <div class="chat-layout">
+
+      <section class="chat-panel chat-panel--patient">
+        <div class="chat-panel__header">
+          <div class="chat-panel__avatar chat-panel__avatar--patient">P</div>
+          <div>
+            <p class="chat-panel__name">You (Patient)</p>
+            <p class="chat-panel__status">Connected to NurseSOS</p>
+          </div>
+        </div>
+
+        <div class="chat-panel__messages" id="patientMessages">
+          <div class="message message--nurse">
+            <div class="message__bubble">
+                Hi Welcome, what may I help you with? 
+            </div>
+            <div class="message__time">Just now</div>
+          </div>
+        </div>
+
+        <form class="chat-panel__input" id="patientForm">
+          <input type="file" id="patientFile" accept="image/*,video/*" style="display: none;" />
+          <button type="button" class="chat-panel__attach-btn" id="patientAttachBtn" title="Attach Photo/Video">&#128247;</button>
+          
+          <input
+            type="text"
+            id="patientInput"
+            class="chat-panel__textbox"
+            placeholder="Type message or attach media..."
+            autocomplete="off"
+          />
+          <button type="submit" class="chat-panel__send-btn">Send</button>
+        </form>
+      </section>
+
+      <section class="chat-panel chat-panel--nurse">
+        <div class="chat-panel__header">
+          <div class="chat-panel__avatar chat-panel__avatar--nurse">N</div>
+          <div>
+            <p class="chat-panel__name">Nurse Operator</p>
+            <p class="chat-panel__status">Active — Triaging Patient</p>
+          </div>
+        </div>
+
+        <div class="chat-panel__messages" id="nurseMessages">
+          <div class="message message--patient">
+            <div class="message__bubble">
+                Hi Welcome, what may I help you with? 
+            </div>
+            <div class="message__time">Just now</div>
+          </div>
+        </div>
+
+        <form class="chat-panel__input" id="nurseForm">
+          <input type="file" id="nurseFile" accept="image/*,video/*" style="display: none;" />
+          <button type="button" class="chat-panel__attach-btn" id="nurseAttachBtn" title="Attach Photo/Video">&#128247;</button>
+
+          <input
+            type="text"
+            id="nurseInput"
+            class="chat-panel__textbox"
+            placeholder="Type response or attach media..."
+            autocomplete="off"
+          />
+          <button type="submit" class="chat-panel__send-btn chat-panel__send-btn--nurse">Send</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__contact">
+        <div>
+          <strong>NurseSOS</strong> —Professional nurse-led call services providing immediate, compassionate healthcare support.
+        </div>
+        <div class="footer__contact-details">
+          <span>&#9993; info@nursesos.ph</span>
+          <span>&#9742; +63 917 555 4321</span>
+        </div>
+      </div>
+      <p class="footer__note"> HIPAA Compliant &bull; Secure Transmission &bull; Available 24/7</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
