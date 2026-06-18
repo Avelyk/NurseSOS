@@ -19,15 +19,13 @@ Link to website: https://avelyk.github.io/NurseSOS/
 
 ### 📁 File Organization
 ```text
-├── public/                     # Static assets directory
-│   ├── imgs/                   # Images and icons used across the site
-│   └── nurseosos-prototype/    # The core interactive application prototype
-│       ├── index.html          # Application dashboard & chat interface
-│       ├── script.js           # Front-end chat interaction & DOM logic
-│       ├── server.js           # Simple Node.js backend server
-│       └── style.js            # Dynamic styles/scripts for the prototype
+├── imgs/                       # Images and icons used across the site
+├── nursesos-prototype/         # The core interactive application prototype
+│   ├── index.html              # Application dashboard & chat interface
+│   ├── script.js               # Front-end chat interaction & DOM logic
+│   ├── server.js               # Simple Node.js backend server
+│   └── style.css               # Prototype stylesheet (fixed from style.js)
 ├── index.html                  # Main website landing page
 ├── style.css                   # Main website stylesheet
 └── team.html                   # Team/Proponents showcase page
-
 
