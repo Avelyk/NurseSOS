@@ -24,7 +24,7 @@ Link to website: https://avelyk.github.io/NurseSOS/
 │   ├── index.html              # Application dashboard & chat interface
 │   ├── script.js               # Front-end chat interaction & DOM logic
 │   ├── server.js               # Simple Node.js backend server
-│   └── style.css               # Prototype stylesheet (fixed from style.js)
+│   └── style.css               # Prototype stylesheet
 ├── index.html                  # Main website landing page
 ├── style.css                   # Main website stylesheet
 └── team.html                   # Team/Proponents showcase page
